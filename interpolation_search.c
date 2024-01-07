@@ -3,7 +3,7 @@
 int interpolationSearch(int arr[], int start, int end, int element){
     int pos;
     if(start<=end && element >= arr[start] && element <= arr[end]){
-        pos = start + (element - arr[start])*((end-start)/(arr[end]-arr[start]));
+        pos = start + (element - arr[start])*((double)(end-start)/(arr[end]-arr[start]));
         if(arr[pos] == element){
             return pos;
         }
