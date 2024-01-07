@@ -1,7 +1,7 @@
 #include<stdio.h>
 #define MAXSIZE 10
 
-int arr[20],front=-1,rear = -1,element;
+int arr[MAXSIZE],front=-1,rear = -1,element;
 
 void insert(){
    if(rear == MAXSIZE - 1){
