@@ -147,8 +147,8 @@ void delete_pos(){
 int main(){
     int ch;
 	printf("1.Create List\n2.Display List\n3.Insert Begin\n4.Insert End\n5.Insert Position\n6.Delete from begin\n7.Delete from end\n8.Delete from any position\n9.Exit");
-    while(ch!=9)
-	{
+          while(ch!=9)
+	  {
 		printf("\nEnter your choice: ");
 		scanf("%d",&ch);
 		switch(ch)
@@ -168,17 +168,17 @@ int main(){
 			case 5:
 				insert_pos();
 				break;
-            case 6:
-               delete_begin();
-               break;
-            case 7:
-               delete_end();
-               break;
+                        case 6:
+                                delete_begin();
+                                 break;
+                         case 7:
+                              delete_end();
+                              break;
 			case 8:
-				delete_pos();
-                break;
-            case 9:
-                printf("\nProgram exited\n");
+			     delete_pos();
+                	     break;
+           		case 9:
+               		    printf("\nProgram exited\n");
 		}
 	}
 
