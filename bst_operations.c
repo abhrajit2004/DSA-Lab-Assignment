@@ -100,26 +100,47 @@ struct node *searchElement(struct node* root, int element){
 }
 
 int main(){
+    int choice, data, element;
     struct node *root = NULL;
-    root = insertNode(root, 50);
-    root = insertNode(root, 30);
-    root = insertNode(root, 20);
-    root = insertNode(root, 40);
-    root = insertNode(root, 70);
-    root = insertNode(root, 60);
-    root = insertNode(root, 80);
+    printf("\n1. Insert Node\n2. Inorder Traversal\n3. Preorder Traversal\n4. Postorder Traversal\n5. Search Element\n6. Delete Node\n7. Exit\n");
+    while(choice!=7){
+        printf("\nEnter your choice: ");
+        scanf("%d",&choice);
+        switch (choice)
+        {
+          case 1:
+            printf("Enter the value of new node: ");
+            scanf("%d",&data);
+            root = insertNode(root, data);
+            printf("New node inserted\n");
+            break;
+          case 2:
+            inorder(root);
+            break;
+          case 3:
+            preorder(root);
+            break;
+          case 4:
+            postorder(root);
+            break;
+          case 5:
+             printf("\nEnter the element you want to search: ");
+             scanf("%d",&element);
+             if(searchElement(root,element) == NULL)
+                printf("\n%d not found",element);
+            else
+               printf("\n%d found",element);
+            break;
+          case 6:
+            printf("\nEnter the element you want to delete: ");
+            scanf("%d",&element);
+            root = deleteNode(root, element);
+            printf("Node deleted\n");
+            break;
+          case 7:
+            printf("Program exited");
+        }
+    }
 
-    printf("Original BST: ");
-    inorder(root);
-    int element = 60;
-    if(searchElement(root,element) == NULL)
-       printf("\n%d not found",element);
-    
-    else
-       printf("\n%d found",element);
-
-    root = deleteNode(root, 50);
-    printf("\nBST after deletion: ");
-    inorder(root);
     return 0;
 }
