@@ -168,17 +168,17 @@ int main(){
 			case 5:
 				insert_pos();
 				break;
-                        case 6:
-                                delete_begin();
-                                 break;
-                         case 7:
-                              delete_end();
-                              break;
+            case 6:
+                delete_begin();
+                break;
+            case 7:
+                delete_end();
+                break;
 			case 8:
-			     delete_pos();
-                	     break;
-           		case 9:
-               		    printf("\nProgram exited\n");
+			    delete_pos();
+                break;
+           	case 9:
+               	printf("\nProgram exited\n");
 		}
 	}
 
