@@ -6,6 +6,7 @@ struct node
     int data;
     struct node *next;
 };
+
 struct node *head = NULL;
 struct node *new_node, *temp;
 
@@ -94,10 +95,59 @@ void insert_pos(){
     }
 }
 
+void delete_begin(){
+    printf("\nDeleting a node from begining of the list");
+    temp = head;
+    head = head -> next;
+    free(temp);
+}
+
+void delete_end(){
+    printf("\nDeleting a node from end of the list");
+    struct node *p;
+    temp = head;
+    while (temp->next!=NULL)
+    {
+        p = temp;
+        temp = temp->next;
+    }
+    p->next = NULL;
+    free(temp);
+}
+
+void delete_pos(){
+    int pos,n,c=1;
+    n = count();
+    temp = head;
+    printf("\nEnter postion from where you want to delete: ");
+	scanf("%d",&pos);
+    if(pos==1){
+        delete_begin();
+    }
+    else if(pos == n){
+        delete_end();
+    }
+    else if(pos>n){
+        printf("\nInvalid Position");
+    }
+    else{
+        temp = head;
+        struct node *p;
+        while (c<pos-1)
+        {
+            temp = temp->next;
+            c++;
+        }
+        p = temp->next;
+        temp->next = p->next;
+        free(p);
+    }
+}
+
 int main(){
     int ch;
-	printf("1.Create List\n2.Display List\n3.Insert Begin\n4.Insert End\n5.Insert Position\n6.Exit");
-    while(ch!=6)
+	printf("1.Create List\n2.Display List\n3.Insert Begin\n4.Insert End\n5.Insert Position\n6.Delete from begin\n7.Delete from end\n8.Delete from any position\n9.Exit");
+    while(ch!=9)
 	{
 		printf("\nEnter your choice: ");
 		scanf("%d",&ch);
@@ -118,8 +168,17 @@ int main(){
 			case 5:
 				insert_pos();
 				break;
-			case 6:
-				printf("\nProgram exited\n");
+            case 6:
+               delete_begin();
+               break;
+            case 7:
+               delete_end();
+               break;
+			case 8:
+				delete_pos();
+                break;
+            case 9:
+                printf("\nProgram exited\n");
 		}
 	}
 
