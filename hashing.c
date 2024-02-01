@@ -31,7 +31,7 @@ int main(){
     if (k > n) {
         printf("Error: k should be less than or equal to n.\n");
     }
-
+    else{
     for (int i = 0; i < n; i++)
     {
         hashArray[i] = 0;
@@ -45,6 +45,6 @@ int main(){
     }
     
     displayArray(hashArray, n);
-    
+    }
     return 0;
 }
