@@ -60,19 +60,21 @@ int main(){
     if (k > n) {
         printf("Error: k should be less than or equal to n.\n");
     }
-
-    for (int i = 0; i < n; i++)
-    {
+ 
+    else{
+       for (int i = 0; i < n; i++)
+       {
         hashArray[i] = 0;
+       }
+ 
+      printf("Enter %d keys: ",k);
+      for (int i = 0; i < k; i++)
+      {
+         scanf("%d", &key);
+         insertKey(hashArray, n, key);
+      }
+     
+     displayArray(hashArray, n);
     }
-
-    printf("Enter %d keys: ",k);
-    for (int i = 0; i < k; i++)
-    {
-        scanf("%d", &key);
-        insertKey(hashArray, n, key);
-    }
-    
-    displayArray(hashArray, n);
     return 0;
 }
