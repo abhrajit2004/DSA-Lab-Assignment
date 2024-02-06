@@ -24,8 +24,18 @@ struct node *inOrderPredecessor(struct node *root){
   return root;
 }
 
+struct node *inOrderSuccessor(struct node *root){
+  root = root->right;
+  while (root->left != NULL)
+  {
+    root = root->left;
+  }
+  return root;
+}
+
 struct node* deleteNode(struct node *root, int key){
   struct node* iPre;
+  struct node* iSuc;
   if(root == NULL){
     return NULL;
   }
@@ -40,9 +50,13 @@ struct node* deleteNode(struct node *root, int key){
     root->right = deleteNode(root->right, key);
   }
   else{
-    iPre = inOrderPredecessor(root);
-    root->data = iPre->data;
-    root->left = deleteNode(root->left, iPre->data);
+    iSuc = inOrderSuccessor(root);
+    root->data = iSuc->data;
+    root->right = deleteNode(root->right, iSuc->data);
+    // iPre = inOrderPredecessor(root);
+    // iPre = inOrderPredecessor(root);
+    // root->data = iPre->data;
+    // root->left = deleteNode(root->left, iPre->data);
   }
   return root;
 }
@@ -84,7 +98,7 @@ int main(){
 
   // preorder(root);
   inorder(root);
-  deleteNode(root, 6);
+  deleteNode(root, 5);
   printf("\n");
   // printf("|Data is %d|",root->data);
   inorder(root);
